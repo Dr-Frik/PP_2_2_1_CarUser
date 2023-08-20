@@ -6,16 +6,13 @@ import javax.persistence.*;
 @Table(name="car")
 public class Car {
      @Id
-     @GeneratedValue( strategy = GenerationType.IDENTITY)
-     @Column(name="Car_id")
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(name = "id")
      private long id;
      @Column(name="model")
      private String model;
      @Column(name="series")
      private int series;
-
-     @OneToOne(mappedBy = "car")
-     private User user;
 
      public Car() {}
      public Car (String model, int series){
@@ -47,20 +44,11 @@ public class Car {
           this.series = series;
      }
 
-     public User getUser() {
-          return user;
-     }
-
-     public void setUser(User user) {
-          this.user = user;
-     }
-
      @Override
      public String toString() {
           return "Car{" +
                   "model='" + model + '\'' +
                   ", series=" + series +
-                  ", user=" + user.getFirstName() +
                   '}';
      }
 }
