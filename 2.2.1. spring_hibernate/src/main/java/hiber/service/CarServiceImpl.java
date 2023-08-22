@@ -8,8 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CarServiceImpl implements CarService {
+    private final CarDAO carDAO;
     @Autowired
-    private CarDAO carDAO;
+    public CarServiceImpl(CarDAO carDAO) {
+        this.carDAO = carDAO;
+    }
+
     @Transactional
     @Override
     public void addCar(Car car) {
